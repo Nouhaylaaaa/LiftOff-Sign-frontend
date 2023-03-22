@@ -1,0 +1,83 @@
+.field{
+   width: 50%;
+   
+}
+::placeholder {
+    color: grey;
+    font-size: 20px;
+    margin: auto;
+    padding: 50px;
+  }
+ .inputs{
+    display: flex;
+    flex-direction: column;
+    
+ } 
+ 
+ .under_inputs{
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin-left: 25%;
+    font-size: 0.8em;
+    color: grey;
+    margin-top: 10px;
+ }
+ .check{
+    display: flex;
+ }
+
+.input1{
+    height: 20px;
+    width: 100%;
+    margin: 5px;
+    border: none;
+    padding: 10px;
+}
+.input1:focus{
+   outline: none;
+   
+}
+.over_inputs{
+    color: rgb(26, 11, 109);
+    font-size: 0.8em;
+    margin-bottom: 40px;
+}
+a{
+    outline: none;
+    text-decoration: none;
+}
+.bankhi_logo{
+   width: 135px;
+   height: 40px;
+   display: flex;
+   justify-content: flex-start;
+   padding-left: 10%;
+   padding-top: 10px;
+  
+}
+fieldset{
+   border: none;
+   padding-top: 17%;
+   
+}
+::placeholder{
+   font-size: 1.2em;
+}
+.email_icon{
+   width: 40px;
+   height: 40px;
+}
+.password_icon{
+   width: 40px;
+   height: 40px;
+   
+}
+.icon_input{
+   display: flex;
+   margin-left: 25%;
+   border-bottom:  2px solid grey;
+   width: 50%;
+   padding: 0px;
+   
+}
