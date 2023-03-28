@@ -6,7 +6,7 @@ import email_icon from '../assets/Icon_Email.png'
 import password_icon from '../assets/Icon_Password.png'
 import eyeOn from '../assets/Eye_On.png'
 import eyeOff from '../assets/Eye_Off.png'
-
+import { Link } from "react-router-dom";
 
 
 
@@ -25,7 +25,7 @@ export default function Authentification() {
   }
 
   return (  
-    <div className='field'>
+    <section className='field'>
         <img src={bankhi_logo} alt='bankhi-logo' className='bankhi_logo'/>
         <form action="" method='post'>
             <fieldset>
@@ -54,13 +54,15 @@ export default function Authentification() {
                 <input type="checkbox" name="souv" id='souv' />
                 <label for="souv">Souviens-toi de moi</label>
                 </div>
-                <a href="https::www.google.com">mot de pass oublié ?</a>
+                <Link to="/SignUP" href="#" variant="body2" >
+                  don't have an account? Sign Up
+                </Link>
             </div>
             <Connecter/>
             </fieldset>
             
         </form>
         
-    </div>
+    </section>
   )
 }

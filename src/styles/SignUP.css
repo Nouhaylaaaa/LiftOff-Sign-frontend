@@ -1,0 +1,25 @@
+.bankhi_logo {
+      /* width: 200px; */
+    /* height: 100px; */
+    margin-top: -75px;
+    /* padding-top: 10px; */
+    /* position: absolute; */
+    /* width: 200px; */
+    margin-bottom: 28px;
+    margin-right: 45px;
+
+  }
+  body {
+    background-image: url('../assets/log_background.png');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 150vh;
+  }  
+  

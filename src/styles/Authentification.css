@@ -1,5 +1,9 @@
 .field{
-   width: 50%;
+   
+   width: 683px;
+    height: 650px;
+    background-color: white;
+    background-size: cover;
    
 }
 ::placeholder {
