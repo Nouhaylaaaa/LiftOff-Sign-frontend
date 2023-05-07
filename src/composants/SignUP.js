@@ -4,29 +4,20 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import bankhi_logo from '../assets/Bankhi-logo.png'
+
 import '../styles/SignUP.css';
 import { Paper } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import { useState } from 'react';
-import { Link } from "react-router-dom";
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+
+import { toast } from 'react-toastify';
+import { Link, useNavigate } from "react-router-dom";
+
+
 
 const theme = createTheme();
 
@@ -41,26 +32,49 @@ export default function SignUp() {
       password: data.get('password'),
     });
   };
+ 
+  
   const[name,setName]=React.useState('')
   const[lastName,setLastName]=React.useState('')
   const[email,setEmail]=React.useState('')
   const[password,setPassword]=React.useState('')
-  const handleClick=(e)=>{
-    e.preventDefault()
-    const employee={name,lastName,email,password}
-    console.log(employee)
-    fetch("http://localhost:8080/employee/add",
-    {
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body:JSON.stringify(employee)
-
+  
+  const handleClick = (e) => {
+    e.preventDefault();
+  
+    // validate inputs
+    const emailRegex = /^\S+@\S+\.\S+$/;
+    if (!emailRegex.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
     }
-    ).then(()=>
-      {
-      console.log("new Client added")
-      })
-  }
+    if (!name || !lastName || !password ) {
+      alert('Please fill in all the required fields.');
+      return;
+    }
+  
+    // send data to server
+    const user = { name, lastName, email, password};
+    fetch('http://localhost:8080/users/add', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(user),
+    }).then(() => {
+      console.log('new user added');
+      toast.success('Signup successful!', {
+        position: 'top-center',
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      navigate('/SignIn');
+    });
+  };
+  
+  const navigate = useNavigate();
 
   return (
     <ThemeProvider theme={theme}>
@@ -69,6 +83,10 @@ export default function SignUp() {
       
         <Paper elevation={3} style={paperStyle}>
         <CssBaseline />
+        
+        <Avatar className='avatar' sx={{ m: 1, bgcolor: 'rgb(27, 40, 219)', position: 'relative', top: '-20px', left: '43%',right: '80%',alignItems: 'center' }}>
+            <LockOutlinedIcon />
+          </Avatar>
         <Box
           sx={{
             marginTop: 8,
@@ -78,13 +96,10 @@ export default function SignUp() {
           }}
           
         >
-           <img src={bankhi_logo} alt='bankhi-logo' className='bankhi_logo'/>
-           <Avatar  sx={{ m: 1, bgcolor: 'rgb(27, 40, 219)' }}>
-            <LockOutlinedIcon />
-          </Avatar>
+           
           
           
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: -3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -136,7 +151,7 @@ export default function SignUp() {
                   onChange={(e)=>setPassword(e.target.value)}
                 />
               </Grid>
-             
+              
             </Grid>
             <Button
             

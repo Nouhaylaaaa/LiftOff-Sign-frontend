@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+
 import reportWebVitals from './reportWebVitals';
 import SignIN from './composants/SignIN';
+import SignUP from './composants/SignUP';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -11,16 +13,22 @@ import {
 
 
 
+
 const router = createBrowserRouter([
   {
-    path: "SignUP",
-    element: <App/>,
+    path: "/",
+    element: <SignUP/>,
   },
   {
-    path: "SignIn",
+    path: "/SignIn",
     element: <SignIN/>,
   },
+  {
+    path: "SignUP",
+    element: <SignUP/>,
+  }, 
 ]);
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -28,6 +36,7 @@ root.render(
     <RouterProvider router={router} />
   </React.StrictMode>
 );
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

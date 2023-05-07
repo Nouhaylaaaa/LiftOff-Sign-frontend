@@ -2,11 +2,14 @@ import React from "react";
 import '../App.css';
 import Footer from './Footer';
 import Authentification from './Authentification';
-import Slides from './Slides';
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function SignIN() {
     return (
       <div className="App">
-     <div className='bod'><Authentification/><Slides/></div>
+        <ToastContainer />
+     <div className='bod'><Authentification/></div>
      <Footer/>
       </div>
     );

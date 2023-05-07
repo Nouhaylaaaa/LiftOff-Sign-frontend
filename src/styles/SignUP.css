@@ -1,16 +1,6 @@
-.bankhi_logo {
-      /* width: 200px; */
-    /* height: 100px; */
-    margin-top: -75px;
-    /* padding-top: 10px; */
-    /* position: absolute; */
-    /* width: 200px; */
-    margin-bottom: 28px;
-    margin-right: 45px;
 
-  }
   body {
-    background-image: url('../assets/log_background.png');
+    background-image: url('../assets/black-and-blue-background.jpg');
     background-size: cover;
     background-position: center;
   }
